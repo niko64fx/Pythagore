@@ -18,6 +18,4 @@ app.controller('helloCtrl', function($scope, $rootScope) {
 
 	$scope.parties = ['addition', 'soustraction', 'multiplication', 'division', 'multiplication_division', 'compte_est_bon'];
 
-
-
 });

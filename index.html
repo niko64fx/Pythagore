@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Pythagore</title>
+        <link rel="stylesheet" href="css/main.css">
 	</head>
 
 	<body>
@@ -14,10 +15,18 @@
             </select>
 		</section>
 
+        <button class="btn btn-success">JOUER</button>
 
 		<section ng-controller="addCtrl" ng-show="addVisible">
 			<div>Apprendre l'addition</div>
 		</section>
+
+        <section ng-controller="avatarCtrl" class="div-center">
+            <h1>Crée ton avatar !</h1>
+            <div ng-repeat="avatar in avatarList" class="avatar-block">
+                <img src="img/avatar{{avatar.id}}.png" width="50%">
+            </div>
+        </section>
 <!--
 		<section ng-controller="sousCtrl" ng-show="sousVisible">
 			<div>Apprendre la soustraction</div>
@@ -40,15 +49,22 @@
 		</section>
 	-->
 
-		<script src="js/angular.js"></script>  <!-- version 1.3.6 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 
+
+		<script src="js/angular.js"></script>  <!-- version 1.3.6 -->
 	    <script src="js/main.js"></script>
+        <script src="js/pages/avatar.js"></script>
 	    <script src="js/add.js"></script>
 	    <script src="js/sous.js"></script>
 	    <script src="js/multi.js"></script>
 		<script src="js/div.js"></script>
 		<script src="js/multidiv.js"></script>
 		<script src="js/cestbon.js"></script>
-
 	</body>
 </html>

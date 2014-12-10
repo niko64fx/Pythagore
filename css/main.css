@@ -1,0 +1,12 @@
+.div-center{
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    border: 1px solid silver;
+    border-radius: 10px;
+
+    text-align: center;
+}
+.avatar-block{
+    display: inline-block;
+}
