@@ -1,0 +1,142 @@
+------------------JEU -----------------------
+Nom de code du projet : pythagore
+
+SCENARISATION 
+- page d'accueil : 
+[jouer] redirige vers page de selection de l'avatar
+[options] redirige vers écran des options
+[quitter] action de confirmation 
+	oui : action de fermer l'application
+	non : action de masquer la confirmation
+
+- choix de l'avatar :
+[creer] : redirige vers création/modification d'avatar
+(Si sélection d'un avatar:)
+	- Modifier : Redir création/mod avatar
+	- Supprimer : Action Confirmation 
+				Oui : Action Supprimer l'avatar + masquer la confirmation
+				Non : Action masquer la confirmation
+	- Jouer : Redir Choix du chapitre
+[Retour] : Redirection vers démarrage
+
+Si un avatar existe déjà, le dernier "utilisé est selectionné par défaut" ou le dernier "créé"/"modifié"
+
+- Création/modification de l'avatar
+(Si selection d'un avatar)
+	[Retour] : Redir Choix de l'avatar
+
+(pseudonyme par défaut n'existant pas déjà dans le cas "création")
+	(clavier permettant d'éditer le pseudo)
+	[Ok] Action Enregistrement/modification de l'avatar et Redir : Choix de l'avatar
+
+- Choix du chapitre
+(Si selection d'un chapitre)
+	[Niveau] : Redir Choix du niveau
+[Retour] : Redir Choix de l'avatar
+(Si le chapitre a déjà été joué)
+	= Par défaut, le premier chapitre est selectionnable
+	= si un chapitre a déjà été joué, il est sélectionnable
+	= si le dernier niveau d'un chapitre a été gagné, le chapitre suivant devient sélectionnable.
+(par défaut, le chapitre selectionné est le premier ou celui correspondant au dernier niveau joué).
+
+- Les chapitres suivants :
+idem sauf :
+[Jouer] : Redir Zone de jeu
+après le bouton [Niveau]
+
+- Options :
+(selection du niveau de volume : son) : Action Maj (met à jour) le volume des sons
+(selection du niveau de volume : musique) : Action Maj (met à jour) le volume de la musique
+[Retour] : Redir démarrage
+[Valider] : Redir démarrage
+
+- Fin de partie :
+[arreter] : Redir Démarrage
+[Retour] : Redir choix du Niveau
+[continuer] : Redir Zone de jeu (niveau suivant)
+[Rejouer] : Redir Zone de jeu (niveau actuel)
+
+- Zone de jeu 
+[Retour] : Redir Choix du niveau
+(détection de fin de partie) : Redir Fin de Partie
+
+LEVEL DESIGN
+Obj : apprendre les additions, soustractions, multiplications et divisions de manière didactique avec une progression de visuel
+
+Evolution :
+addition
+soustraction
+addition et soustraction
+multiplication
+division
+multiplication
+multi&division
+bonus (le compte est bon)
+=> un chapitre pour chaque, avec une vingtaine de niveaux dans chaque chapitre
+
+- Comparaison droite/gauche : le résultat de gauche est incomplet
+
+- Complétion droite et gauche : les deux résultats sont incomplets
+
+- Division : 3 parties 
+niveaux 1 à 10. Ecran divisé en 2 
+gauche : tarte découpée en parts, draggable
+droite : 3 assiettes + frigo
+
+- ----------------------------
+Ecran en 2 parties
+
+écran droite :
+Les blocs sont intouchables (undraggable)
+Blocs invalides selon le cas : target pour certains
+Blocs déplaçables (seulement dans sa zone)
+
+Pioche :
+Blocs déplaçables dans une seule des zones (pioche)
+
+Animations :
+- limites (zones : droite, gauche, pioche)
+- "catchable"
+- si mauvais déplacement, retour à l'origine
+- génération (initialisation : positions au hasard sans contact)
+- génération positionnée (grille)
+- déplacement itératif des blocs en cas de dépôt superposé 
+
+Contenants :
+- cas particuliers
+
+- Les graphismes sur tablettes :
+SVG : scalable Vector Graphics (illustrator ou inkScape en opensource)
+
+
+---------------------- MAPPING---------------------
+- Trouver les éléments communs qui structurent les niveaux
+- constituer un mapping (sous forme d'un objet) permettant de générer les niveaux
+- développer un générateur de niveau (hors-jeu)
+- développer un constructeur de niveau (in-game)
+ex : dans un objet, au noiveau 5, il faut 4 élts à gauche
+
+----------------GAME CORE------------------------
+Une fois que tout est prêt (gestion des niveaux), 
+- contrôle des actions utilisateur
+- compter les coups
+- détecter les fins de partie
+- assistant (capable d'executer des actions à la place de l'utilisateur, de déclencher des animations attachées à des blocks existants)
+- gestion des sons
+
+---------------------VUES - animations ---------------
+- parallaxe sur les chapitres
+- crédit
+- animation de fin de partie / animation chargement de la partie
+
+
+PS : voir comment faire des directives dans angular
+voir ionic (framework/librairie type bootstrap pour Cordova/Angular pour petites applications pro : visualisations toutes prêtes, mais très mainstream visuellement)
+
+--------- DIVISION DU TRAVAIL------------------------
+- Blocs (graphisme interactions) : Séb et Alexandre
+- quand un bloc va sur un autre, les autres se poussent autour : Aude et Gérard
+- Structuration du jeu : nous
+- génération du niveau : face droite
+- le compte est bon : face
+- parallaxe : face gauche
