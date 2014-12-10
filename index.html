@@ -19,12 +19,25 @@
 			<div>Avatar</div>
 		</section>
 
+        <button class="btn btn-success">JOUER</button>
 
 		<section ng-controller="addCtrl" ng-show="addIsVisible">
 			<div>Apprendre l'addition</div>
 		</section>
 
+		<section ng-controller="avatarCtrl" class="div-center">
+            <h1>Crée ton avatar !</h1>
+            <div ng-repeat="avatar in avatarList" class="avatar-block">
+                <img src="img/avatar{{avatar.id}}.png" width="50%">
+            </div>
+		</section>
+		
 		<section ng-controller="sousCtrl" ng-show="sousIsVisible">
+
+        </section>
+
+		<section ng-controller="sousCtrl" ng-show="sousVisible">
+
 			<div>Apprendre la soustraction</div>
 		</section>
 
@@ -44,10 +57,10 @@
 			<div>Jouer au "Compte est bon"</div>
 		</section>
 
+
 		<script src="js/angular.js"></script>  <!-- version 1.3.6 -->
 	    <script src="js/main.js"></script>
 		<script src="js/hello.js"></script>
-		<script src="js/avatar2.js"></script>
         <script src="js/pages/avatar.js"></script>
 	    <script src="js/add.js"></script>
 	    <script src="js/sous.js"></script>

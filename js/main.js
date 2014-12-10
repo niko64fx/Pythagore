@@ -19,3 +19,12 @@ app.run(function($rootScope){});
 	{nom:'compte_est_bon', show:"helloIsVisible"}
 	];*/
 
+
+	console.log ("Accueil");
+
+	$rootScope.helloVisible =  true;
+
+	$scope.parties = ['addition', 'soustraction', 'multiplication', 'division', 'multiplication_division', 'compte_est_bon'];
+
+});
+
