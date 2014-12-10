@@ -1,7 +1,7 @@
-app.controller('multidivCtrl', function($scope) {
+app.controller('multidivCtrl', function($scope, $rootScope) {
 
 	console.log ("chargement partie multiplication-division");
 
-	$scope.visible =  false;
+	$rootScope.multidivIsvisible =  false;
 
 });

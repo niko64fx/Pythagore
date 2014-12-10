@@ -3,52 +3,57 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Pythagore</title>
+		<link rel="stylesheet" href="css/main.css">
 	</head>
 
 	<body>
 
-		<section ng-controller="helloCtrl" ng-show="helloVisible">Accueil
+		<section ng-controller="helloCtrl" ng-show="helloIsVisible">
+			<h1>Accueil</h1>
+			<div ng-click="jouer()">Jouer</div>
+			<div ng-click="options()">Options</div>
+			<div ng-click="QuitterOuiNon()">Quitter</div>
+		</section>
 
-            <select name="choixPartie" ng-model="parties" ng-options="partie for partie in parties" >
-            	<option value="">Choisissez la partie</option>
-            </select>
+		<section ng-controller="avatar2Ctrl" ng-show="avatar2IsVisible">
+			<div>Avatar</div>
 		</section>
 
 
-		<section ng-controller="addCtrl" ng-show="addVisible">
+		<section ng-controller="addCtrl" ng-show="addIsVisible">
 			<div>Apprendre l'addition</div>
 		</section>
-<!--
-		<section ng-controller="sousCtrl" ng-show="sousVisible">
+
+		<section ng-controller="sousCtrl" ng-show="sousIsVisible">
 			<div>Apprendre la soustraction</div>
 		</section>
 
-		<section ng-controller="multiCtrl" ng-show="multiVisible">
+		<section ng-controller="multiCtrl" ng-show="multiIsVisible">
 			<div>Apprendre la multiplication</div>
 		</section>
 
-		<section ng-controller="divCtrl" ng-show="divVisible">
+		<section ng-controller="divCtrl" ng-show="divIsVisible">
 			<div>Apprendre la division</div>
 		</section>
 
-		<section ng-controller="multidivCtrl" ng-show="multiVisible">
+		<section ng-controller="multidivCtrl" ng-show="multidivIsVisible">
 			<div>Apprendre la multiplication et la division</div>
 		</section>
 
-		<section ng-controller="cestbonCtrl" ng-show="cestbonVisible">
+		<section ng-controller="cestbonCtrl" ng-show="cestbonIsVisible">
 			<div>Jouer au "Compte est bon"</div>
 		</section>
-	-->
 
 		<script src="js/angular.js"></script>  <!-- version 1.3.6 -->
-
 	    <script src="js/main.js"></script>
+		<script src="js/hello.js"></script>
+		<script src="js/avatar2.js"></script>
+        <script src="js/pages/avatar.js"></script>
 	    <script src="js/add.js"></script>
 	    <script src="js/sous.js"></script>
 	    <script src="js/multi.js"></script>
 		<script src="js/div.js"></script>
 		<script src="js/multidiv.js"></script>
 		<script src="js/cestbon.js"></script>
-
 	</body>
 </html>

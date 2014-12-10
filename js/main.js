@@ -10,14 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 app.run(function($rootScope){});
 
-app.controller('helloCtrl', function($scope, $rootScope) {
+	/*$rootScope.pages = [
+	{nom:'addition', show:"helloIsVisible"}, 
+	{nom:'soustraction', show:"soustractionIsVisible"}, 
+	{nom:'multiplication', show:"multiplicationIsVisible"}, 
+	{nom:'division', show:"divisionIsVisible"}, 
+	{nom:'multiplication_division', show:"helloIsVisible"}, 
+	{nom:'compte_est_bon', show:"helloIsVisible"}
+	];*/
 
-	console.log ("Accueil");
-
-	$rootScope.helloVisible =  true;
-
-	$scope.parties = ['addition', 'soustraction', 'multiplication', 'division', 'multiplication_division', 'compte_est_bon'];
-
-
-
-});

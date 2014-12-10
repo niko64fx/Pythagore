@@ -1,7 +1,7 @@
-app.controller('multiCtrl', function($scope) {
+app.controller('multiCtrl', function($scope, $rootScope) {
 
 	console.log ("chargement partie multiplication");
 
-	$rootScope.visible =  false;
+	$rootScope.multiIsVisible =  false;
 
 });

@@ -1,7 +1,7 @@
-app.controller('cestbonCtrl', function($scope) {
+app.controller('cestbonCtrl', function($scope, $rootScope) {
 
 	console.log ("chargement partie le compte est bon");
 
-	$scope.visible =  false;
+	$rootScope.cestbonIsVisible =  false;
 
 });

@@ -1,7 +1,7 @@
-app.controller('sousCtrl', function($scope) {
+app.controller('sousCtrl', function($scope, $rootScope) {
 
 	console.log ("chargement partie soustraction");
 
-	$scope.visible =  false;
+	$rootScope.sousIsVisible =  false;
 
 });
