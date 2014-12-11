@@ -1,5 +1,5 @@
 app.controller(
-  'profileAddAndEditCtrl',
+  'profileAddOrEditCtrl',
   function($scope, $rootScope)
   {
     

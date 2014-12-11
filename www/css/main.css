@@ -1,11 +1,30 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
-
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../font/ubuntu-400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../font/ubuntu-500.woff) format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../font/ubuntu-700.woff) format('woff');
+}
 
 html, body, section {
 	height: 100%;
 	width: 100%;
 }
 body {
+	background-image: url(../img/background.png);
+	background-size: cover;
+	color: #fff;
 	font-family: 'Ubuntu';
 	font-size: 2rem;
 }
@@ -49,12 +68,32 @@ section[ng-controller="profilesListCtrl"] > div {
 	top: 50%;
 	width: 100%;
 }
-section[ng-controller="profilesListCtrl"] > div > div {
-	background-color: #000;
+profile {
 	display: inline-block;
 	height: 16rem;
 	margin: 0 2rem;
+	position: relative;
 	width: 8rem;
+}
+profile div {
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 100%;
+	opacity: 0.5;
+	position: relative;
+	width: 100%;
+}
+profile div.on {
+	opacity: 1;
+}
+profile div.none { background-image: url(../img/avatar/none.png); }
+profile div.minion { background-image: url(../img/avatar/minion.png); }
+profile div h4 {
+	bottom: 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
 }
 section[ng-controller="profilesListCtrl"] > nav {
 	bottom: 1rem;

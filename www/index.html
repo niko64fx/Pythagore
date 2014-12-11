@@ -35,20 +35,18 @@
     <button ng-click="gotoHome()">ᅀ</button>
     
     <div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <profile ng-repeat="profile in profiles"></profile>
     </div>
 
     <nav>
-      <button ng-click="openProfileAddAndEditWindow()">CREER</button>
-      <button ng-click="openProfileAddAndEditWindow()" ng-class="button.edit.class">MODIFIER</button>
-      <button ng-click="removeProfile()" ng-class="button.remove.class">SUPPRIMER</button>
+      <button ng-click="openChaptersListWindow()" ng-show="playButton.isVisible">JOUER</button>
+      <button ng-click="openProfileAddOrEditWindow()" ng-show="createButton.isVisible">CREER</button>
+      <button ng-click="openProfileAddOrEditWindow()" ng-show="editButton.isVisible">MODIFIER</button>
+      <button ng-click="removeProfile()" ng-show="removeButton.isVisible">SUPPRIMER</button>
     </nav>
     
     <!-- Vue: Création/modification d'un profil' -->
-    <section ng-controller="profileAddAndEditCtrl" ng-show="profileAddAndEditIsVisible">
+    <section ng-controller="profileAddOrEditCtrl" ng-show="profileAddOrEditIsVisible">
     
     </section>
 
@@ -86,8 +84,11 @@
   <script src="js/controller/gameEndController.js"></script>
   <script src="js/controller/levelsListController.js"></script>
   <script src="js/controller/optionsWindowController.js"></script>
-  <script src="js/controller/profileAddAndEditController.js"></script>
+  <script src="js/controller/profileAddOrEditController.js"></script>
   <script src="js/controller/profilesListController.js"></script>
+
+  <!-- Directives -->
+  <script src="js/directive/profileDirective.js"></script>
 
   </body>
 </html>
