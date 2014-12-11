@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Pythagore</title>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body>
+<!--                           LES PAGES DE MENU -->
+<!-- PAGE Accueil -->
+		<div class="container">
+			<section ng-controller="helloCtrl" ng-show="helloIsVisible">
+				<h1>Accueil</h1>
+				<div ng-click="quitter()">Quitter</div>
+				<div ng-click="jouer()">Jouer</div>
+				<div ng-click="options()">Options</div>
+
+			</section>
+
+	<!-- PAGE Menu Avatar -->
+
+		<!--Partie Niko a integrer :
+			<section ng-controller="avatarCtrl" class="div-center" ng-show="avatarIsVisible">
+	            <h1>Crée ton avatar !</h1>
+	            <div ng-repeat="avatar in avatarList" class="avatar-block">
+	                <img src="img/avatar{{avatar.id}}.png" width="50%">
+	            </div>
+			</section> 	-->
+	 		<section ng-controller="avatarCtrl" ng-show="avatarIsVisible">
+				<h1>PAGE MENU AVATAR</h1>
+				<div ng-click="choisirAvatar()">Selectionner un avatar</div>
+		<!-- ici intégrer le code de Niko pour choix avatar : afficher les avatars existants-->
+				<div ng-click="creerAvatar()">Créer un avatar</div>
+				<div ng-click="retour()">Retour</div>
+			</section>
+
+	<!-- PAGES Création avatar -->
+	 		<section ng-controller="creationAvatarCtrl" ng-show="creationAvatarIsVisible">
+				<h1>PAGE CREATION AVATAR</h1>
+				<!-- ICI Modifier le controller pour enregistrer la saisie d'un nouvel avatar -->
+				<input type="text" placeholder="Saisissez le nom de votre avatar">
+				<div type="bouton" ng-click="valider()">OK</div>
+			</section>
+
+	<!-- PAGE Options -->
+			<section ng-controller="optionCtrl" ng-show="optionIsVisible">
+				<h1>PAGE OPTIONS</h1>
+			</section>
+
+	<!-- PAGE Choix du jeu -->
+			<section ng-controller="choixJeuCtrl" ng-show="choixJeuIsVisible">
+				<h1>PAGE CHOIX DU JEU</h1>
+				<div class="menuDefilant" ng-click="allerAAdd()">Additions</div>
+				<div class="menuDefilant" ng-click="allerASous()"> Soustraction</div>
+				<div class="menuDefilant" ng-click="allerAMulti()">Multiplications</div>
+				<div class="menuDefilant" ng-click="allerADiv()">Divisions</div>
+				<div class="menuDefilant" ng-click="allerAMultidiv()">Additions et Soustractions</div>
+				<div class="menuDefilant" ng-click="allerACestbon()">Le compte est bon</div>
+				<div class="clear"></div>
+			</section>
+
+	<!-- PAGE Choix du Niveau -->
+			<section ng-controller="choixNiveauCtrl" ng-show="choixNiveauIsVisible">
+				<h1>PAGE CHOIX DU NIVEAU</h1>
+			</section>  	
+
+
+	<!-- PAGE Quitter -->	
+			<section ng-controller="quitterCtrl" ng-show="quitterIsVisible">
+				<h1>PAGE QUITTER</h1>
+				<div>Voulez-vous vraiment quitter ?<div>
+					<div ng-click="quitterOui()"> OUI</div>
+					<div ng-click="quitterNon()">NON</div>
+			</section>
+
+	<!--                           LES PAGES DE JEU -->
+	<!-- PAGE Goodbye -->
+			<section ng-controller="goodbyeCtrl" ng-show="goodbyeIsVisible">
+				<div>ADIEU</div>
+			</section>
+
+	<!-- PAGE Addition -->
+			<section ng-controller="addCtrl" ng-show="addIsVisible">
+				<div>Apprendre l'addition</div>
+			</section>
+
+	<!-- PAGE Soustraction -->
+			<section ng-controller="sousCtrl" ng-show="sousIsVisible">
+				<div>Apprendre la soustraction</div>
+			</section>
+
+	<!-- PAGE Multiplication -->
+			<section ng-controller="multiCtrl" ng-show="multiIsVisible">
+				<div>Apprendre la multiplication</div>
+			</section>
+
+	<!-- PAGE Division -->
+			<section ng-controller="divCtrl" ng-show="divIsVisible">
+				<div>Apprendre la division</div>
+			</section>
+
+	<!-- PAGE Multiplication et Division -->
+			<section ng-controller="multidivCtrl" ng-show="multidivIsVisible">
+				<div>Apprendre la multiplication et la division</div>
+			</section>
+
+	<!-- PAGE Le compte est bon -->
+			<section ng-controller="cestbonCtrl" ng-show="cestbonIsVisible">
+				<div>Jouer au "Compte est bon"</div>
+			</section>
+
+		</div>
+
+
+		<script src="js/angular.js"></script>  <!-- version 1.3.6 -->
+	    <script src="js/main.js"></script>
+		<script src="js/page/helloCtrl.js"></script>
+        <script src="js/page/avatarCtrl.js"></script>
+        <script src="js/page/creationAvatarCtrl.js"></script>
+        <script src="js/page/optionCtrl.js"></script>
+        <script src="js/page/choixJeuCtrl.js"></script>
+        <script src="js/page/choixNiveauCtrl.js"></script>
+        <script src="js/page/quitterCtrl.js"></script>
+        <script src="js/page/goodbyeCtrl.js"></script>
+	    <script src="js/page/addCtrl.js"></script>
+	    <script src="js/page/sousCtrl.js"></script>
+	    <script src="js/page/multiCtrl.js"></script>
+		<script src="js/page/divCtrl.js"></script>
+		<script src="js/page/multidivCtrl.js"></script>
+		<script src="js/page/cestbonCtrl.js"></script>
+	</body>
+</html>
