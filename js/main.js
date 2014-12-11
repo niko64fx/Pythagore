@@ -22,9 +22,8 @@ app.run(function($rootScope){});
 
 	console.log ("Accueil");
 
-	$rootScope.helloVisible =  true;
 
-	$scope.parties = ['addition', 'soustraction', 'multiplication', 'division', 'multiplication_division', 'compte_est_bon'];
 
-});
+
+
 

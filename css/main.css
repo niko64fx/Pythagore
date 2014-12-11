@@ -1,9 +1,46 @@
-div {
-	background-color: red;
-	width: 50px;
-	height: 20px;
-	margin: 10px;
+.container{
+    width: 800px;
+    height: 600px;
 }
+
+section{
+    width:100%;
+}
+h1{
+    width: 100%;
+    text-align:center;
+}
+
+clear{
+    clear:both;
+}
+
+[ng-click]{
+    background-color: red;
+    width: 80px;
+    height: 50px;
+    margin:10px;
+}
+
+[ng-click="quitter()"]{
+    width: 50px;
+    height: 50px;
+    border-radius:30px;
+}
+
+[ng-click="jouer()"]{
+    margin: 10px auto;
+    width: 100px;
+    height: 70px;
+}
+
+ div.menuDefilant{
+    width: 100px;
+    height:100px;
+    margin: O auto;
+    float:left;
+ }
+
 .div-center{
     display: block;
     width: 75%;

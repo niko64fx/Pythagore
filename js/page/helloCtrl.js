@@ -2,10 +2,11 @@ app.controller('helloCtrl', function($scope, $rootScope) {
 
 	console.log ("Accueil");
 
-	$rootScope.helloIsVisible =  true;
+	$rootScope.helloIsVisible =  true; // la section Hello est invisible par défaut
+
 
 	$scope.jouer = function () {
-		$rootScope.avatar2IsVisible = true;
+		$rootScope.avatarIsVisible = true;
 		$rootScope.helloIsVisible =  false;
 	};
 
@@ -15,10 +16,11 @@ app.controller('helloCtrl', function($scope, $rootScope) {
 	};
 
 	$scope.quitter= function () {
-
-
-		// ng-show div oui/ non = true
+		$rootScope.quitterIsVisible = true;
+		$rootScope.helloIsVisible =  false;
 	};
+
+	
 
 });
 
