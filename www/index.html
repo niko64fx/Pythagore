@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <title>Pythagore</title>
+  <link rel="stylesheet" href="third-party/reset.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+  <!-- Vue: Accueil -->
+  <section ng-controller="homeCtrl" ng-show="homeIsVisible">
+    <button ng-click="openExitWindow()">X</button>
+    <button ng-click="gotoOptions()">OPTIONS</button>
+    <button ng-click="gotoProfilesList()">JOUER</button>
+  </section>
+
+  <!-- Fenêtre: Options -->
+  <section ng-controller="optionsWindowCtrl" ng-show="optionsWindowIsVisible">
+
+  </section>
+
+  <!-- Fenêtre: Confirmation de sortie de jeu -->
+  <section ng-controller="exitWindowCtrl" ng-show="exitWindowIsVisible">
+    
+  </section>
+
+  <!-- Vue: Liste des profils -->
+  <section ng-controller="profilesListCtrl" ng-show="profilesListIsVisible">
+
+    <button ng-click="gotoHome()">ᅀ</button>
+    
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <nav>
+      <button ng-click="openProfileAddAndEditWindow()">CREER</button>
+      <button ng-click="openProfileAddAndEditWindow()" ng-class="button.edit.class">MODIFIER</button>
+      <button ng-click="removeProfile()" ng-class="button.remove.class">SUPPRIMER</button>
+    </nav>
+    
+    <!-- Vue: Création/modification d'un profil' -->
+    <section ng-controller="profileAddAndEditCtrl" ng-show="profileAddAndEditIsVisible">
+    
+    </section>
+
+  </section>
+
+
+  <!-- Vue: Liste des cĥapitres -->
+  <section ng-controller="chaptersListCtrl" ng-show="chaptersListIsVisible">
+    
+  </section>
+
+  <!-- Vue: Liste des niveaux -->
+  <section ng-controller="levelsListCtrl" ng-show="levelsListIsVisible">
+    
+  </section>    
+
+  <!-- Vue: Plateau de jeu -->
+  <section ng-controller="gameController" ng-show="gameIsVisible">
+    
+    <!-- Vue: Ecran de fin de partie -->
+    <section ng-controller="gameEndController" ng-show="gameEndIsVisible">
+    
+    </section>
+    
+  </section>    
+
+  <script src="third-party/angular.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Contrôleurs -->
+  <script src="js/controller/chaptersListController.js"></script>
+  <script src="js/controller/exitWindowController.js"></script>
+  <script src="js/controller/homeController.js"></script>
+  <script src="js/controller/gameController.js"></script>
+  <script src="js/controller/gameEndController.js"></script>
+  <script src="js/controller/levelsListController.js"></script>
+  <script src="js/controller/optionsWindowController.js"></script>
+  <script src="js/controller/profileAddAndEditController.js"></script>
+  <script src="js/controller/profilesListController.js"></script>
+
+  </body>
+</html>
