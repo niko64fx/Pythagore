@@ -1,7 +1,10 @@
 app.controller(
   'chaptersListCtrl',
-  function($scope, $rootScope)
-  {
+  [
+    "$scope", "$rootScope",
+    function($scope, $rootScope)
+    {
 
-  }
+    }
+  ]
 );

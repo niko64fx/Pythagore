@@ -112,3 +112,83 @@ button[ng-click="gotoHome()"] {
 	top: 1rem;
 	width: 3rem;
 }
+
+/* Vue: Création/modification d'un profil */
+section[ng-controller="profileAddOrEditCtrl"] {
+	background-color: #333;
+}
+section[ng-controller="profileAddOrEditCtrl"] {
+	position: absolute;
+	z-index: 1;
+}
+section[ng-controller="profileAddOrEditCtrl"] div.profile {
+	background-position: center top;
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 40%;
+	margin: 1rem auto;
+	width: 12rem;
+}
+section[ng-controller="profileAddOrEditCtrl"] div.profileNickname {
+	font-weight: 700;
+	height: 10%;
+	letter-spacing: 0.2rem;
+	line-height: 100%;
+	margin: 2rem auto;
+	width: 25rem;
+}
+section[ng-controller="profileAddOrEditCtrl"] div.profileNickname label,
+section[ng-controller="profileAddOrEditCtrl"] div.profileNickname span {
+	display: inline-block;
+	margin: 0 0.5rem;
+	width: 1.5rem;
+}
+section[ng-controller="profileAddOrEditCtrl"] div.profileNickname label {
+	height: 2rem;
+	text-align: center;
+	vertical-align: bottom;
+}
+section[ng-controller="profileAddOrEditCtrl"] div.profileNickname span {
+	background-color: #fff;
+	height: 0.2rem;
+	margin-top: 0.5rem;
+	vertical-align: top;
+}
+section[ng-controller="profileAddOrEditCtrl"] div.none { background-image: url(../img/avatar/none.png); }
+section[ng-controller="profileAddOrEditCtrl"] div.minion { background-image: url(../img/avatar/minion.png); }
+keyboard {
+	bottom: 0;
+	height: auto;
+	left: 50%;
+	margin-left: -26rem;
+	position: absolute;
+	text-align: center;
+	width: 52rem;
+}
+keyboard > div {
+	background-color: #ccc;
+	border-radius: 0.5rem;
+	display: inline-block;
+	height: 3rem;
+	line-height: 3rem;
+	margin: 0.5rem;
+	width: 3rem;
+}
+keyboard > div.space {
+	background-color: #ccc;
+	border-radius: 0.2rem;
+	display: inline-block;
+	height: 3rem;
+	line-height: 3rem;
+	margin: 0.5rem;
+	width: 24rem;
+}
+keyboard > div.backspace {
+	background-color: #ccc;
+	border-radius: 0.2rem;
+	display: inline-block;
+	height: 3rem;
+	line-height: 3rem;
+	margin: 0.5rem;
+	width: 24rem;
+}

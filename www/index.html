@@ -47,7 +47,15 @@
     
     <!-- Vue: Création/modification d'un profil' -->
     <section ng-controller="profileAddOrEditCtrl" ng-show="profileAddOrEditIsVisible">
-    
+      
+      <div class="profile" ng-class="profile.class"></div>
+      <div class="profileNickname">
+        <label ng-repeat="letter in nicknameLetters track by $index">{{ letter }}</label><br>
+        <span ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]"></span>
+      </div>
+
+      <keyboard></keyboard>
+
     </section>
 
   </section>
@@ -88,6 +96,7 @@
   <script src="js/controller/profilesListController.js"></script>
 
   <!-- Directives -->
+  <script src="js/directive/keyboardDirective.js"></script>
   <script src="js/directive/profileDirective.js"></script>
 
   </body>

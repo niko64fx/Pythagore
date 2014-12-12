@@ -1,7 +1,10 @@
 app.controller(
   'gameEndController',
-  function($scope, $rootScope)
-  {
+  [
+    "$scope", "$rootScope",
+    function($scope, $rootScope)
+    {
 
-  }
+    }
+  ]
 );

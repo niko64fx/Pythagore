@@ -1,7 +1,10 @@
 app.controller(
   'optionsWindowCtrl',
-  function($scope, $rootScope)
-  {
+  [
+    "$scope", "$rootScope",
+    function($scope, $rootScope)
+    {
     
-  }
+    }
+  ]
 );

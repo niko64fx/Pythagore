@@ -1,7 +1,10 @@
 app.controller(
   'levelsListCtrl',
-  function($scope, $rootScope)
-  {
+  [
+    "$scope", "$rootScope",
+    function($scope, $rootScope)
+    {
 
-  }
+    }
+  ]
 );

@@ -2,9 +2,9 @@
 // avant que le DOM et Angular soient chargé pour pouvoir y pré-attacher
 // l'ensemble des contrôleurs, services, directives, etc  
 var app = angular
-  .module('Pythagore', [])
+  .module('Pythagore', ['ng'])
   // Au chargement du module Pythagore, on exécute :
-  .run(function($rootScope) {
+  .run(["$rootScope", function($rootScope) {
       // - l'initialisation des variables affichant/masquant les vues
       $rootScope.chaptersListIsVisible     = false;
       $rootScope.exitWindowIsVisible       = false;
@@ -15,7 +15,7 @@ var app = angular
       $rootScope.optionsWindowIsVisible    = false;
       $rootScope.profileAddOrEditIsVisible = false;
       $rootScope.profilesListIsVisible     = false;
-  });
+  }]);
 
 // Une fois que le DOM est chargé
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,6 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
   console.info('DOM loaded');
 
 	// On attache angular au DOM en chargeant le module Pythagore
-	angular.bootstrap(document, ['Pythagore'])
+	angular.bootstrap(document, ['Pythagore'], { strictDi: true })
 
 });

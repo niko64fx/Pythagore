@@ -1,11 +1,11 @@
 app.directive(
-  'profile',
+  'keyboard',
   [
     function()
     {
       return {
         restrict: 'E',
-        templateUrl: 'js/template/profile.html'
+        templateUrl: 'js/template/keyboard.html'
       }
     }
   ]
