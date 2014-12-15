@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Pythagore</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="js/utilities.js"></script>
+</head>
+<body>
+
+    <div class="bloc1">
+    </div>
+
+    <div class="bloc2">
+    </div>
+
+    <div class="pick">
+    </div>
+
+    <hr>
+
+    <form>
+        <fieldset>
+        <legend>Generateur</legend>
+
+            <label>Choix du chapitre :</label>
+            <select id="chapter">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+
+            <label>Choix du niveau :</label>
+            <select id="level"></select>
+
+            <label>Nombre de block partie gauche :</label>
+            <input type="text" id="nbLeftBlock" name="blockLeftNumber">
+
+            <label>Nombre de block partie droite :</label>
+            <input type="text" id="nbRightBlock" name="blockRightNumber">
+
+            <label>Nombre de block dans la pioche :</label>
+            <input type="text" id="nbPickBlock" name="blockPickNumber">
+
+            <label>Largeur des blocks :</label>
+            <input type="text" id="widthBlock" name="blockWidth">
+
+            <label>Longueur des blocks :</label>
+            <input type="text" id="heightBlock" name="blockHeight">
+
+            <button id="validate">Valider</button>
+        </fieldset>
+    </form>
+
+
+    <script src="js/classes/Shape.class.js"></script>
+    <script src="js/classes/Level.class.js"></script>
+    <script src="js/classes/Player.class.js"></script>
+    <script src="js/classes/Map.class.js"></script>
+    <script src="js/classes/Game.class.js"></script>
+    <script src="js/pythagore.js"></script>
+</body>
+</html>
