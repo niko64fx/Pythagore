@@ -89,7 +89,7 @@ function afficherJeu(level)
 	}
 	console.log('la solution');
 	for (var i=0;i<jeu.length;i++) {
-		maSolution.push(new ligne(jeu[i].premier,jeu[i].operateur,0));
+		maSolution.push(new ligne(jeu[i].premier,'?',0));
 		maSolution[i].resultat=jeu[i].resultat;
 		console.log(maSolution[i].premier+' '+maSolution[i].operateur+' '+maSolution[i].deuxieme+" = "+maSolution[i].resultat);
 	}
@@ -195,7 +195,7 @@ $('.enigme').droppable({
 		// console.log($(this).attr('id'));
 		var largue=ui.draggable.attr('id'); // id de la plaque apposée
 		var nolig=idBoiteDrop.charAt(idBoiteDrop.length-1)-1; // N° de ligne du jeu
-		console.log('numéro de ligne '+nolig);
+		//console.log('numéro de ligne '+nolig);
 		var monChoix=$("#"+largue).text(); // valeur de la plaque
 		maSolution[nolig].deuxieme=parseInt(monChoix);
 		if (monChoix==jeu[nolig].deuxieme) 
@@ -229,7 +229,17 @@ $('.operator').droppable(
 	accept:".operateur",
 	drop: function(event,ui)
 	{
-		console.log('opérateur droppé');
+		var idOperDrop=$(this).attr('id'); // id  de l'opérateur modifié
+		var nolig=idOperDrop.charAt(idOperDrop.length-1)-1; // N° de ligne du jeu
+		var opId=ui.draggable.attr('id'); // id de l'opérateur glissé avec draggable
+		
+		var opChoix=$('#'+opId).text(); // on récupère l'opérateur
+		maSolution[nolig].operateur=opChoix; // on met à jour le jeu du joueur
+		$(this).text(opChoix); // maj du html
+		maSolution[nolig].calcule(); // on recalcule la solution du joueur
+
+		$('#'+opId).draggable("option","revert",true);
+		testFin(); // on teste si le jeu est terminé
 	}
 }
 	);
