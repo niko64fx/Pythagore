@@ -1,0 +1,7 @@
+{
+  "name": "Pythagore",
+  "dependencies": {
+    "angular-touch": "1.*",
+    "cordova-css-reset": "2.*"
+  }
+}

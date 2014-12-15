@@ -1,0 +1,16 @@
+{
+  "name": "cordova-css-reset",
+  "version": "2.6.0",
+  "main": "reset.css",
+  "ignore": [],
+  "homepage": "https://github.com/ivangabriele/Cordova-CSS-Reset",
+  "_release": "2.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.6.0",
+    "commit": "bb45c85c42e48814ad0f49dc1c5aeee99bc88d7b"
+  },
+  "_source": "git://github.com/ivangabriele/Cordova-CSS-Reset.git",
+  "_target": "2.*",
+  "_originalSource": "cordova-css-reset"
+}
