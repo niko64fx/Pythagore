@@ -4,18 +4,28 @@
 var app = angular
   .module('Pythagore', ['ng'])
   // Au chargement du module Pythagore, on exécute :
-  .run(["$rootScope", function($rootScope) {
-      // - l'initialisation des variables affichant/masquant les vues
-      $rootScope.chaptersListIsVisible     = false;
-      $rootScope.exitWindowIsVisible       = false;
-      $rootScope.homeIsVisible             = true;
-      $rootScope.gameIsVisible             = false;
-      $rootScope.gameEndIsVisible          = false;
-      $rootScope.levelsListIsVisible       = false;
-      $rootScope.optionsWindowIsVisible    = false;
-      $rootScope.profileAddOrEditIsVisible = false;
-      $rootScope.profilesListIsVisible     = false;
-  }]);
+  .run(
+    [
+      "$rootScope", "localStorage",
+      function($rootScope, localStorage)
+      {
+        // - l'initialisation des variables affichant/masquant les vues
+        $rootScope.chaptersListIsVisible     = false;
+        $rootScope.exitWindowIsVisible       = false;
+        $rootScope.homeIsVisible             = true;
+        $rootScope.gameIsVisible             = false;
+        $rootScope.gameEndIsVisible          = false;
+        $rootScope.levelsListIsVisible       = false;
+        $rootScope.optionsWindowIsVisible    = false;
+        $rootScope.profileAddOrEditIsVisible = false;
+        $rootScope.profilesListIsVisible     = false;
+        
+        // - le chargement des données à partir du localStorage
+        if (localStorage.load('profiles') === null) localStorage.save('profiles', dataProfiles);
+        $rootScope.profiles = localStorage.load('profiles');
+      }
+    ]
+  );
 
 // Une fois que le DOM est chargé
 document.addEventListener('DOMContentLoaded', function() {

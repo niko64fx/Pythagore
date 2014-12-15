@@ -4,26 +4,6 @@ app.controller(
     "$scope", "$rootScope",
     function($scope, $rootScope)
     {
-      // Liste fictive des avatars que nous devrons charger à partir du localStorage
-      $rootScope.profiles = [
-        {
-          nickname: 'TOTO',
-          class: 'minion'
-        },
-        {
-          nickname: 'TITI',
-          class: 'minion'
-        },
-        {
-          nickname: '',
-          class: 'none'
-        },
-        {
-          nickname: '',
-          class: 'none'
-        }
-      ];
-
       /**
        * Resetter: (ré-)initialise les propriétés et les variables de scope
        * 

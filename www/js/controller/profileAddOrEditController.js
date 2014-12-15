@@ -30,7 +30,7 @@ app.controller(
       }
 
       /**
-       * ...
+       * Insère une lettre à la fin du pseudonyme
        * 
        * @return {void}
        */
@@ -40,13 +40,33 @@ app.controller(
       }
 
       /**
-       * ...
+       * Efface une lettre du pseudonyme (à partir de la fin)
        * 
        * @return {void}
        */
       $scope.backspace = function()
       {
         if ($scope.nicknameLetters.length !== 0) $scope.nicknameLetters.pop();
+      }
+
+      /**
+       * Enregistre le profil et redirige vers la liste des profils
+       * 
+       * @return {void}
+       */
+      $scope.enter = function()
+      {
+        if ($scope.nicknameLetters.length !== 0) $scope.nicknameLetters.pop();
+      }
+
+      /**
+       * Redirige vers la liste des profils (sans enregistrer le profil créé/modifié)
+       * 
+       * @return {void}
+       */
+      $scope.gotoProfilesList = function()
+      {
+        $rootScope.profileAddOrEditIsVisible = false;
       }
     }
   ]

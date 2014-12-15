@@ -44,17 +44,17 @@ button[ng-click] {
 section[ng-controller="homeCtrl"] > button[ng-click] {
 	position: absolute;
 }
-button[ng-click="openExitWindow()"] {
+section[ng-controller="homeCtrl"] button[ng-click="openExitWindow()"] {
 	border-radius: 50%;
 	left: 1rem;
 	top: 1rem;
 	width: 3rem;
 }
-button[ng-click="gotoOptions()"] {
+section[ng-controller="homeCtrl"] button[ng-click="gotoOptions()"] {
 	top: 1rem;
 	right: 1rem;
 }
-button[ng-click="gotoProfilesList()"] {
+section[ng-controller="homeCtrl"] button[ng-click="gotoProfilesList()"] {
 	bottom: 1rem;
 	right: 1rem;
 }
@@ -68,14 +68,14 @@ section[ng-controller="profilesListCtrl"] > div {
 	top: 50%;
 	width: 100%;
 }
-profile {
+section[ng-controller="profilesListCtrl"] profile {
 	display: inline-block;
 	height: 16rem;
 	margin: 0 2rem;
 	position: relative;
 	width: 8rem;
 }
-profile div {
+section[ng-controller="profilesListCtrl"] profile div {
 	background-size: contain;
 	background-repeat: no-repeat;
 	display: inline-block;
@@ -84,12 +84,12 @@ profile div {
 	position: relative;
 	width: 100%;
 }
-profile div.on {
+section[ng-controller="profilesListCtrl"] profile div.on {
 	opacity: 1;
 }
-profile div.none { background-image: url(../img/avatar/none.png); }
-profile div.minion { background-image: url(../img/avatar/minion.png); }
-profile div h4 {
+section[ng-controller="profilesListCtrl"] profile div.none { background-image: url(../img/avatar/none.png); }
+section[ng-controller="profilesListCtrl"] profile div.minion { background-image: url(../img/avatar/minion.png); }
+section[ng-controller="profilesListCtrl"] profile div h4 {
 	bottom: 0;
 	position: absolute;
 	text-align: center;
@@ -105,7 +105,7 @@ section[ng-controller="profilesListCtrl"] > nav {
 section[ng-controller="profilesListCtrl"] > nav > button.off {
 	opacity: 0.2;
 }
-button[ng-click="gotoHome()"] {
+section[ng-controller="profilesListCtrl"] button[ng-click="gotoHome()"] {
 	border-radius: 50%;
 	left: 1rem;
 	position: absolute;
@@ -116,8 +116,6 @@ button[ng-click="gotoHome()"] {
 /* Vue: Création/modification d'un profil */
 section[ng-controller="profileAddOrEditCtrl"] {
 	background-color: #333;
-}
-section[ng-controller="profileAddOrEditCtrl"] {
 	position: absolute;
 	z-index: 1;
 }
@@ -156,7 +154,7 @@ section[ng-controller="profileAddOrEditCtrl"] div.profileNickname span {
 }
 section[ng-controller="profileAddOrEditCtrl"] div.none { background-image: url(../img/avatar/none.png); }
 section[ng-controller="profileAddOrEditCtrl"] div.minion { background-image: url(../img/avatar/minion.png); }
-keyboard {
+section[ng-controller="profileAddOrEditCtrl"] keyboard {
 	bottom: 0;
 	height: auto;
 	left: 50%;
@@ -165,7 +163,7 @@ keyboard {
 	text-align: center;
 	width: 52rem;
 }
-keyboard > div {
+section[ng-controller="profileAddOrEditCtrl"] keyboard > div {
 	background-color: #ccc;
 	border-radius: 0.5rem;
 	display: inline-block;
@@ -174,21 +172,19 @@ keyboard > div {
 	margin: 0.5rem;
 	width: 3rem;
 }
-keyboard > div.space {
-	background-color: #ccc;
-	border-radius: 0.2rem;
-	display: inline-block;
-	height: 3rem;
-	line-height: 3rem;
-	margin: 0.5rem;
+section[ng-controller="profileAddOrEditCtrl"] keyboard > div.space {
 	width: 24rem;
 }
-keyboard > div.backspace {
-	background-color: #ccc;
-	border-radius: 0.2rem;
-	display: inline-block;
-	height: 3rem;
-	line-height: 3rem;
-	margin: 0.5rem;
-	width: 24rem;
+section[ng-controller="profileAddOrEditCtrl"] keyboard > div.backspace {
+	width: 6rem;
+}
+section[ng-controller="profileAddOrEditCtrl"] keyboard > div.enter {
+	width: 8rem;
+}
+section[ng-controller="profileAddOrEditCtrl"] button[ng-click="gotoProfilesList()"] {
+	border-radius: 50%;
+	left: 1rem;
+	position: absolute;
+	top: 1rem;
+	width: 3rem;
 }
