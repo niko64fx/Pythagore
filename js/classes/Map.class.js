@@ -12,32 +12,10 @@ Map.prototype.onClickGenerate = function()
 {
     var chap = $('#chapter').val();
     var level = $('#level').val();
-    var nbLeftBlock = $('#nbLeftBlock').val();
-    var nbRightBlock = $('#nbRightBlock').val();
-    var nbPickBlock = $('#nbPickBlock').val();
 
     this.level = new Level(chap,level);
 
-    for(var i = 0; i < nbLeftBlock; i++)
-    {
-        var shape = new Shape('zone1');
-        shape.Init();
-        this.level.shapes.push(shape);
-    }
-
-    for(i = 0; i < nbRightBlock; i++)
-    {
-        shape = new Shape('zone2');
-        shape.Init();
-        this.level.shapes.push(shape);
-    }
-
-    for(i = 0; i < nbPickBlock; i++)
-    {
-        shape = new Shape('pioche');
-        shape.Init();
-        this.level.shapes.push(shape);
-    }
+    this.level.createShapes();
 
     this.RefreshMap();
 };
