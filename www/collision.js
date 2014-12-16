@@ -1,8 +1,4 @@
-var blockHeight = 50;
-var blockWidth = 50;
-var blockMargin = 10;
-
-var Collision = angular.module('app', []);
+var Collision = angular.module('app', ['ngTouch']);
 
 Collision.controller(
   'CollisionCtrl',
@@ -10,12 +6,56 @@ Collision.controller(
     '$scope',
     function($scope)
     {
-      blockHeight += blockMargin;
-      blockWidth += blockMargin;
-      
+      $scope.blockHeight = 50;
+      $scope.blockWidth = 50;
+      $scope.blockMargin = 10;
+
+      $scope.blockHeight += $scope.blockMargin;
+      $scope.blockWidth += $scope.blockMargin;
+
       var draggedBlockPosition, otherBlocks, otherBlocksNumber;
+      
       $scope.blocks = [
-        [0, 50, 50], [1, 150, 50], [2, 250, 50], [3, 50, 150], [4, 150, 150], [5, 250, 150], [6, 50, 250], [7, 150, 250], [8, 250, 250], [9, 400, 400]
+        {
+          left: 50,
+          top: 50,
+          minLeft: 20,
+          maxLeft: 442,
+          minTop: 20,
+          maxTop: 530
+        },
+        {
+          left: 150,
+          top: 50,
+          minLeft: 20,
+          maxLeft: 442,
+          minTop: 20,
+          maxTop: 530
+        },
+        {
+          left: 250,
+          top: 50,
+          minLeft: 20,
+          maxLeft: 442,
+          minTop: 20,
+          maxTop: 530
+        },
+        {
+          left: 50,
+          top: 150,
+          minLeft: 20,
+          maxLeft: 442,
+          minTop: 20,
+          maxTop: 530
+        },
+        {
+          left: 150,
+          top: 150,
+          minLeft: 20,
+          maxLeft: 442,
+          minTop: 20,
+          maxTop: 530
+        }
       ];
     }
   ]
@@ -29,43 +69,45 @@ Collision.directive(
     {
       return function(scope, element, attr)
       {
-        var elementPosition, mousePosition, otherBlocks, otherBlocksNumber;
+        var blocks, blocksNumber, elementOrigin, elementPosition, touchPosition;
 
-        element.on('mousedown', function(event)
+        element.on('touchstart', function(event)
         {
-          angular.element(document.querySelectorAll('section > div > div')).off('collision');
+          if (typeof blocks !== 'undefined') angular.element(blocks).off('collision');
+
+          blocks = document.querySelectorAll('section > div > div');
+          blocksNumber = blocks.length;
 
           element.addClass('dragged');
-
-          angular.element(document.querySelectorAll('section > div > div.oops')).removeClass('oops');
-
-          angular.element(document.querySelectorAll('section > div > div:not(.dragged)')).addClass('test');
-
-          otherBlocks = document.querySelectorAll('section > div > div:not(.dragged)');
-          otherBlocksNumber = otherBlocks.length;
           
-          for (var i=0; i<otherBlocksNumber; i++) angular.element(otherBlocks[i]).on('collision', move);
+          angular.element(blocks).on('collision', move);
 
-          elementPosition = {
+          elementOrigin = elementPosition = {
             x: parseInt(element.css('left')),
             y: parseInt(element.css('top'))
           };
 
-          mousePosition = {
-            x: event.pageX,
-            y: event.pageY
+          touchPosition = {
+            x: event.changedTouches[0].clientX,
+            y: event.changedTouches[0].clientY
           };
 
-          $document.on('mousemove', mousemove);
-          $document.on('mouseup', mouseup);
+          $document.on('touchmove', drag);
+          $document.on('touchend', drop);
         });
 
-        function mousemove(event)
+        function drag(event)
         {
-          elementPosition.x += event.pageX - mousePosition.x;
-          elementPosition.y += event.pageY - mousePosition.y;
-          mousePosition.x = event.pageX;
-          mousePosition.y = event.pageY;
+          elementPosition.x += event.changedTouches[0].clientX - touchPosition.x;
+          elementPosition.y += event.changedTouches[0].clientY - touchPosition.y;
+          
+          if (elementPosition.x < scope.block.minLeft) elementPosition.x = scope.block.minLeft;
+          if (elementPosition.x > scope.block.maxLeft) elementPosition.x = scope.block.maxLeft;
+          if (elementPosition.y < scope.block.minTop) elementPosition.y = scope.block.minTop;
+          if (elementPosition.y > scope.block.maxTop) elementPosition.y = scope.block.maxTop;
+          
+          touchPosition.x = event.changedTouches[0].clientX;
+          touchPosition.y = event.changedTouches[0].clientY;
 
           element.css({
             left: elementPosition.x + 'px',
@@ -73,143 +115,40 @@ Collision.directive(
           });
         }
 
-        function mouseup()
+        function drop()
         {
           element.removeClass('dragged');
 
-          $document.off('mousemove');
-          $document.off('mouseup');
+          $document.off('touchmove');
+          $document.off('touchend');
 
-          firstMove(elementPosition);
-        }
-
-        function firstMove(draggedBlockPosition)
-        {
-          for (var i=0; i<otherBlocksNumber; i++)
-          {
-            var element = otherBlocks[i];
-
-            var horizontalDifference = element.offsetLeft - draggedBlockPosition.x;
-            var verticalDifference = element.offsetTop - draggedBlockPosition.y;
-
-            if (Math.abs(horizontalDifference) <= (blockWidth-1) && Math.abs(verticalDifference) <= (blockHeight-1))
-            {
-              element.classList.add('oops');
-
-              if (horizontalDifference === verticalDifference)
-              {
-                element.style.left = (draggedBlockPosition.x + ((horizontalDifference / Math.abs(horizontalDifference)) * blockWidth)) + 'px';
-                element.style.top = (draggedBlockPosition.y + ((verticalDifference / Math.abs(verticalDifference)) * blockHeight)) + 'px';
-              }
-              else if (horizontalDifference === 0)
-              {
-                element.style.top = (draggedBlockPosition.y + ((verticalDifference / Math.abs(verticalDifference)) * blockHeight)) + 'px';
-              }
-              else if (verticalDifference === 0)
-              {
-                element.style.left = (draggedBlockPosition.x + ((horizontalDifference / Math.abs(horizontalDifference)) * blockWidth)) + 'px';
-              }
-              else
-              {
-                if (Math.abs(horizontalDifference) < Math.abs(verticalDifference))
-                {
-                  element.style.top = (draggedBlockPosition.y + ((verticalDifference / Math.abs(verticalDifference)) * blockHeight)) + 'px';
-                }
-                else
-                {
-                  element.style.left = (draggedBlockPosition.x + ((horizontalDifference / Math.abs(horizontalDifference)) * blockWidth)) + 'px';
-                }
-              }
-
-              angular.element(element).triggerHandler('collision');
-            }
-          }
+          angular.element(element).triggerHandler('collision');
         }
 
         function move()
         {
-          for (var i=0; i<otherBlocksNumber; i++)
+          for (var i=0; i<blocksNumber; i++)
           {
-            if ('block-' + i === this.id) continue;
+            if (angular.element(blocks[i]).scope().$id === angular.element(this).scope().$id) continue;
 
-            var element = otherBlocks[i];
+            var horizontalDifference = blocks[i].offsetLeft - this.offsetLeft;
+            var verticalDifference = blocks[i].offsetTop - this.offsetTop;
 
-            var horizontalDifference = element.offsetLeft - this.offsetLeft;
-            var verticalDifference = element.offsetTop - this.offsetTop;
-
-            if (Math.abs(horizontalDifference) <= 49 && Math.abs(verticalDifference) <= 49)
+            if (Math.abs(horizontalDifference) <= (scope.blockWidth - 1) && Math.abs(verticalDifference) <= (scope.blockHeight - 1))
             {
-              element.classList.add('oops');
-
-              if (horizontalDifference === verticalDifference)
+              if (Math.abs(horizontalDifference) < Math.abs(verticalDifference))
               {
-                element.style.left = (this.offsetLeft + ((horizontalDifference / Math.abs(horizontalDifference)) * blockWidth)) + 'px';
-                element.style.top = (this.offsetTop + ((verticalDifference / Math.abs(verticalDifference)) * blockHeight)) + 'px';
-              }
-              else if (horizontalDifference === 0)
-              {
-                element.style.top = (this.offsetTop + ((verticalDifference / Math.abs(verticalDifference)) * blockHeight)) + 'px';
-              }
-              else if (verticalDifference === 0)
-              {
-                element.style.left = (this.offsetLeft + ((horizontalDifference / Math.abs(horizontalDifference)) * blockWidth)) + 'px';
+                //if (scope.block.minLeft)
+                blocks[i].style.top = (this.offsetTop + ((verticalDifference / Math.abs(verticalDifference)) * scope.blockHeight)) + 'px';
               }
               else
               {
-                if (Math.abs(horizontalDifference) < Math.abs(verticalDifference))
-                {
-                  element.style.top = (this.offsetTop + ((verticalDifference / Math.abs(verticalDifference)) * blockHeight)) + 'px';
-                }
-                else
-                {
-                  element.style.left = (this.offsetLeft + ((horizontalDifference / Math.abs(horizontalDifference)) * blockWidth)) + 'px';
-                }
+                blocks[i].style.left = (this.offsetLeft + ((horizontalDifference / Math.abs(horizontalDifference) || 1) * scope.blockWidth)) + 'px';
               }
 
-              angular.element(element).triggerHandler('collision');
+              angular.element(blocks[i]).triggerHandler('collision');
             }
           }
-        }
-      };
-    }
-  ]
-);
-
-Collision.directive(
-  'blocks',
-  [
-    '$document',
-    function($document)
-    {
-      return function(scope, element, attr) {
-        var startX = 0, startY = 0, x = 0, y = 0;
-
-        /*element.css({
-         left: scope.block.,
-         top: scope.block.
-        });*/
-
-        element.on('mousedown', function(event) {
-          // Prevent default dragging of selected content
-          event.preventDefault();
-          startX = event.pageX - x;
-          startY = event.pageY - y;
-          $document.on('mousemove', mousemove);
-          $document.on('mouseup', mouseup);
-        });
-
-        function mousemove(event) {
-          y = event.pageY - startY;
-          x = event.pageX - startX;
-          element.css({
-            top: y + 'px',
-            left:  x + 'px'
-          });
-        }
-
-        function mouseup() {
-          $document.off('mousemove', mousemove);
-          $document.off('mouseup', mouseup);
         }
       };
     }

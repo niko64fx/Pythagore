@@ -11,41 +11,34 @@
     }
     section {
       float: left;
-      height: 640px;
-      width: 640px;
+      height: 600px;
+      width: 512px;
     }
     section:nth-child(1) { background-color: #333; }
     section:nth-child(2) { background-color: #222; }
     section > div {
       background-color: #fff;
       float: left;
-      height: 600px;
+      height: 560px;
       margin: 20px;
-      width: 600px;
+      width: 472px;
     }
-    section > div > div {
+    div[draggable] {
       background-color: #ccc;
       height: 50px;
       position: absolute;
       width: 50px;
       z-index: 1;
     }
-    section > div > div.draggable {
-      /*background-color: yellow;*/
-    }
-    section > div > div.dragged {
-      background-color: yellow;
-      /*height: 60px;*/
-      /*margin: -5px 0 0 -5px;*/
-      /*opacity: 0.4;*/
-      /*width: 60px;*/
+    div[draggable].dragged {
+      background-color: #999;
+      /*height: 60px;
+      margin: -5px 0 0 -5px;
+      width: 60px;*/
       z-index: 99;
     }
-    section > div > div.oops {
+    div[draggable].oops {
       background-color: red;
-    }
-    section > div > div.test {
-      opacity: 1;
     }
   </style>
   </head>
@@ -53,7 +46,7 @@
 
     <section ng-controller="CollisionCtrl">
       <div>
-        <div ng-repeat="block in blocks" draggable id="block-{{ block[0] }}" style="left: {{ block[1] }}px; top: {{ block[2] }}px"></div>
+        <div ng-repeat="block in blocks" draggable style="left: {{ block.left }}px; top: {{ block.top }}px"></div>
       </div>
     </section>
 
@@ -64,6 +57,7 @@
     </section>
 
     <script src="third-party/angular/angular.js"></script>
+    <script src="third-party/angular-touch/angular-touch.js"></script>
 
     <script src="collision.js"></script>
 
