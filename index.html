@@ -7,10 +7,44 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="js/utilities.js"></script>
+    <style>
+        block {
+            border-radius: 5px;
+            color: #fff;
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 500;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            text-align: center;
+            width: 50px;
+            z-index: 1;
+        }
+        block[draggable] {
+            background-color: #fff;
+            border-radius: 5px;
+            color: #333;
+        }
+        block[droppable] {
+            background-color: #ccc;
+            box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body ng-app="block">
 
     <section ng-controller="GeneratorCtrl">
+        
+        <div class="bloc1"></div>
+        <div class="bloc2"></div>
+        <div class="pick"></div>
+
+        <block ng-repeat="block in blocks">
+
+        <hr>
+
         <form novalidate>
             <fieldset>
             <legend>Generateur</legend>
