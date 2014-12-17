@@ -1,14 +1,12 @@
-var Shape = function (area)
+var Shape = function ()
 {
     /******** constructeur *******/
     this.color = "";
-    this.x = 0;
-    this.y = 0;
-    this.width = 50;
-    this.height = 50;
+    this.gridX = 0;
+    this.gridY = 0;
     this.image = "";
     this.value = 0;
-    this.area = area;
+    this.area = 0;
     this.isDraggableInAreas = [];
     this.isDraggable = false;
     this.isDroppable = false;
