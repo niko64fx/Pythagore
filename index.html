@@ -10,17 +10,6 @@
 </head>
 <body ng-app="block">
 
-    <div class="bloc1">
-    </div>
-
-    <div class="bloc2">
-    </div>
-
-    <div class="pick">
-    </div>
-
-    <hr>
-
     <section ng-controller="GeneratorCtrl">
         <form novalidate>
             <fieldset>
@@ -34,40 +23,41 @@
                 <!--<select ng-model="block.level" ng-option="level.value for level in levels"></select>-->
 
                 <label>Value :</label>
-                <input ng-model="block.value" type="text">
+                <input ng-model="block.value" type="number">
 
                 <label>Area :</label>
-                <input ng-model="block.area" type="text">
+                <input ng-model="block.area" type="number">
 
                 <label>Draggable :</label>
                 <input ng-model="block.isDraggable" type="checkbox">
-                <label>Not draggable</label>
-                <input ng-model="block.isNotDraggable"  type="checkbox">
+
+                <label>Droppable :</label>
+                <input ng-model="block.isDroppable"  type="checkbox">
 
                 <label>Show Number :</label>
-                <input ng-model="block.showNumber" type="checkbox">
-                <label>Hide Number</label>
-                <input ng-model="block.hideNumber"  type="checkbox">
+                <input ng-model="block.hasNumber" type="checkbox">
 
                 <label>Position X :</label>
-                <input ng-model="block.gridX" type="text">
+                <input ng-model="block.gridX" type="number">
+
+                {{ block.hasNumber }}
 
                 <label>Position Y :</label>
-                <input ng-model="block.gridY" type="text">
+                <input ng-model="block.gridY" type="number">
 
+                <button ng-click="addBlock()">Ajouter</button>
 
-
-                <button ng-click="addBlock()">Valider</button>
             </fieldset>
         </form>
     </section>
 
-    <script src="js/angular.js"></script>
-    <script src="js/classes/Shape.class.js"></script>
-    <script src="js/classes/Level.class.js"></script>
-    <script src="js/classes/Player.class.js"></script>
-    <script src="js/classes/Map.class.js"></script>
-    <script src="js/classes/Game.class.js"></script>
-    <script src="js/pythagore.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Contrôleurs -->
+    <script src="js/controller/generatorController.js"></script>
+
+    <!-- Services -->
+    <script src="js/service/localStorageService.js"></script>
 </body>
 </html>
