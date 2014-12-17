@@ -41,7 +41,7 @@
         <div class="bloc2"></div>
         <div class="pick"></div>
 
-        <block ng-repeat="block in blocks">
+        <block ng-repeat="block in blocks"></block>
 
         <hr>
 
@@ -64,17 +64,19 @@
 
                 <label>Draggable :</label>
                 <input ng-model="block.isDraggable" type="checkbox">
+                {{ block.isDraggable }}
 
                 <label>Droppable :</label>
                 <input ng-model="block.isDroppable"  type="checkbox">
+                {{ block.isDroppable }}
 
                 <label>Show Number :</label>
                 <input ng-model="block.hasNumber" type="checkbox">
 
+                {{ block.hasNumber }}
+
                 <label>Position X :</label>
                 <input ng-model="block.gridX" type="number">
-
-                {{ block.hasNumber }}
 
                 <label>Position Y :</label>
                 <input ng-model="block.gridY" type="number">
@@ -93,5 +95,8 @@
 
     <!-- Services -->
     <script src="js/service/localStorageService.js"></script>
+
+    <!-- Directives -->
+    <script src="js/directive/blockDirective.js"></script>
 </body>
 </html>
