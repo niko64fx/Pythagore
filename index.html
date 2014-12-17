@@ -8,7 +8,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="js/utilities.js"></script>
 </head>
-<body>
+<body ng-app="block">
 
     <div class="bloc1">
     </div>
@@ -21,43 +21,48 @@
 
     <hr>
 
-    <form>
-        <fieldset>
-        <legend>Generateur</legend>
+    <section ng-controller="GeneratorCtrl">
+        <form novalidate>
+            <fieldset>
+            <legend>Generateur</legend>
 
-            <label>Choix du chapitre :</label>
-            <select id="chapter">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
+                <!--<label>Choix du chapitre :</label>-->
+                <!--<select ng-model="block.chapter" ng-option="chapter.value for chapter in chapters">-->
+                <!--</select>-->
 
-            <label>Choix du niveau :</label>
-            <select id="level"></select>
+                <!--<label>Choix du niveau :</label>-->
+                <!--<select ng-model="block.level" ng-option="level.value for level in levels"></select>-->
 
-            <label>Nombre de block partie gauche :</label>
-            <input type="text" id="nbLeftBlock" name="blockLeftNumber">
+                <label>Value :</label>
+                <input ng-model="block.value" type="text">
 
-            <label>Nombre de block partie droite :</label>
-            <input type="text" id="nbRightBlock" name="blockRightNumber">
+                <label>Area :</label>
+                <input ng-model="block.area" type="text">
 
-            <label>Nombre de block dans la pioche :</label>
-            <input type="text" id="nbPickBlock" name="blockPickNumber">
+                <label>Draggable :</label>
+                <input ng-model="block.isDraggable" type="checkbox">
+                <label>Not draggable</label>
+                <input ng-model="block.isNotDraggable"  type="checkbox">
 
-            <label>Longueur des blocks :</label>
-            <input type="text" id="widthBlock" name="blockWidth">
+                <label>Show Number :</label>
+                <input ng-model="block.showNumber" type="checkbox">
+                <label>Hide Number</label>
+                <input ng-model="block.hideNumber"  type="checkbox">
 
-            <label>Hauteur des blocks :</label>
-            <input type="text" id="heightBlock" name="blockHeight">
+                <label>Position X :</label>
+                <input ng-model="block.gridX" type="text">
 
-            <button id="validate">Valider</button>
-        </fieldset>
-    </form>
+                <label>Position Y :</label>
+                <input ng-model="block.gridY" type="text">
 
 
+
+                <button ng-click="addBlock()">Valider</button>
+            </fieldset>
+        </form>
+    </section>
+
+    <script src="js/angular.js"></script>
     <script src="js/classes/Shape.class.js"></script>
     <script src="js/classes/Level.class.js"></script>
     <script src="js/classes/Player.class.js"></script>
