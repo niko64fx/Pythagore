@@ -1,5 +1,5 @@
 app.controller(
-  'gameEndController',
+  'gameEndCtrl',
   [
     "$scope", "$rootScope",
     function($scope, $rootScope)

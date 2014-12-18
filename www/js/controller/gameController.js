@@ -4,7 +4,7 @@ app.controller(
 		'$scope', 'localStorage',
 		function ($scope, localStorage)
 		{
-			if (localStorage.load('blocks') === null) localStorage.save('blocks', []);
+			/*if (localStorage.load('blocks') === null) localStorage.save('blocks', []);
 			$scope.blocks = localStorage.load('blocks');
 
 			($scope.load = function()
@@ -32,7 +32,7 @@ app.controller(
 				localStorage.save('blocks', $scope.blocks);
 
 				$scope.load();
-			}
+			}*/
 		}
 	]
 );

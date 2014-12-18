@@ -81,6 +81,17 @@ app.controller(
        * 
        * @return {void}
        */
+      $scope.gotoChaptersList = function()
+      {
+        $rootScope.profilesListIsVisible = false;
+        $rootScope.chaptersListIsVisible = true;
+      };
+
+      /**
+       * Redirige vers l'accueil
+       * 
+       * @return {void}
+       */
       $scope.gotoHome = function()
       {
         $scope.reset();

@@ -1,8 +1,8 @@
 app.controller(
   'profileAddOrEditCtrl',
   [
-    "$scope", "$rootScope",
-    function($scope, $rootScope)
+    "$scope", "$rootScope", "localStorage",
+    function($scope, $rootScope, localStorage)
     {
       $scope.keyboardKeys = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -21,9 +21,6 @@ app.controller(
        */
       $scope.load = function()
       {
-        // DEBUG
-        console.log($rootScope.selectedProfileIndex);
-
         $scope.profile = $rootScope.profiles[$rootScope.selectedProfileIndex];
         $scope.nicknameLetters = $scope.profile.nickname.split('');
         console.log($scope.nicknameLetters);
@@ -56,7 +53,16 @@ app.controller(
        */
       $scope.enter = function()
       {
-        if ($scope.nicknameLetters.length !== 0) $scope.nicknameLetters.pop();
+        $scope.profile.nickname = '';
+
+        for (var i=0; i<$scope.nicknameLetters.length; i++)
+        {
+          $scope.profile.nickname += $scope.nicknameLetters[i];
+        }
+
+        localStorage.save("profiles", $rootScope.profiles);
+
+        $scope.gotoProfilesList();
       }
 
       /**
