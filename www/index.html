@@ -65,7 +65,7 @@
 
   <!-- Vue: Liste des cĥapitres -->
   <section ng-controller="chaptersListCtrl" ng-show="chaptersListIsVisible">
-    
+    <button ng-repeat="chapter in game"></button>
   </section>
 
   <!-- Vue: Liste des niveaux -->
@@ -104,6 +104,7 @@
   <script src="js/service/localStorageService.js"></script>
 
   <!-- Directives -->
+  <script src="js/directive/blockDirective.js"></script>
   <script src="js/directive/keyboardDirective.js"></script>
   <script src="js/directive/profileDirective.js"></script>
 

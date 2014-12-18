@@ -21,7 +21,9 @@ var app = angular
         $rootScope.profilesListIsVisible     = false;
         
         // - le chargement des données à partir du localStorage
+        if (localStorage.load('game') === null) localStorage.save('game', dataGame);
         if (localStorage.load('profiles') === null) localStorage.save('profiles', dataProfiles);
+        $rootScope.game = localStorage.load('game');
         $rootScope.profiles = localStorage.load('profiles');
       }
     ]

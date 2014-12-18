@@ -188,3 +188,28 @@ section[ng-controller="profileAddOrEditCtrl"] button[ng-click="gotoProfilesList(
 	top: 1rem;
 	width: 3rem;
 }
+
+/* Vue: plateau de jeu */
+block {
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 500;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  text-align: center;
+  width: 50px;
+  z-index: 1;
+}
+block[draggable] {
+  background-color: #fff;
+  border-radius: 5px;
+  color: #333;
+}
+block[droppable] {
+  background-color: #ccc;
+  box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 5px;
+}
