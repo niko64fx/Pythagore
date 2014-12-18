@@ -14,7 +14,7 @@ app.directive('block',
                 {
                     var hauteur = 10;
                     var largeur = 10;
-                    var zones = [{x: 10, y: 10},{x: 460, y: 10},{x: 10, y: 515}];
+                    var zones = [{x: 10, y: 510},{x: 10, y: 10},{x: 525, y: 10}];
 
 
                     if(scope.block.isDraggable == true)
