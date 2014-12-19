@@ -23,4 +23,4 @@ crashlytics.properties
 crashlytics-build.properties
 
 ### Cordova ###
-cordova/platforms/*
+platforms/*
