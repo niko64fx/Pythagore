@@ -7,9 +7,16 @@ app.directive(
 			function link(scope, element, attributes)
 			{
         element.css({
+          fontSize: $rootScope.blockFontSize + 'px',
+          height: $rootScope.blockSize + 'px',
           left: ($rootScope.zones[scope.block.area].x + $rootScope.gridWidth * scope.block.gridX) + 'px',
-          top: ($rootScope.zones[scope.block.area].y + $rootScope.gridHeight * scope.block.gridY) + 'px'
+          lineHeight: $rootScope.blockSize + 'px',
+          top: ($rootScope.zones[scope.block.area].y + $rootScope.gridHeight * scope.block.gridY) + 'px',
+          width: $rootScope.blockSize + 'px'
         })
+
+        if (scope.block.area === 0) element.css({ margin: $rootScope.stackMargin + 'px' })
+        else                        element.css({ margin: $rootScope.blockMargin + 'px' })
 
         if(scope.block.isDraggable)
         {
@@ -20,8 +27,6 @@ app.directive(
         }
         if(scope.block.isDroppable)
         {
-          console.log()
-
           $document.on('dropped', checkDroppedElement);
           element.addClass('droppable');
         }
@@ -29,7 +34,12 @@ app.directive(
 
         function dragStart(event)
         {
-          elementOrigin = elementPosition = {
+          $rootScope.droppedElementOrigin = {
+            x: parseInt(angular.element(this).css('left')),
+            y: parseInt(angular.element(this).css('top'))
+          };
+
+          elementPosition = {
             x: parseInt(angular.element(this).css('left')),
             y: parseInt(angular.element(this).css('top'))
           };
@@ -62,21 +72,30 @@ app.directive(
 
         function dropped(event)
         {
-          $rootScope.droppedElementPosition = elementPosition;
+          $rootScope.droppedElement = element;
           $document.triggerHandler('dropped');
         }
 
         function checkDroppedElement(event)
         {
-          //console.log($rootScope.droppedElementPosition.x, parseInt(element.css('left')));
-
           if (
-            Math.abs($rootScope.droppedElementPosition.x - parseInt(element.css('left'))) <= 50
-            && Math.abs($rootScope.droppedElementPosition.y - parseInt(element.css('top'))) <= 50
+            Math.abs(parseInt($rootScope.droppedElement.css('left')) - parseInt(element.css('left'))) <= $rootScope.blockSize
+            && Math.abs(parseInt($rootScope.droppedElement.css('top')) - parseInt(element.css('top'))) <= $rootScope.blockSize
           )
-            console.log('o');
+          {
+            $rootScope.droppedElement.css({
+              left: element.css('left'),
+              margin: element.css('margin'),
+              top: element.css('top')
+            });
+          }
           else
-            console.log('n');
+          {
+            $rootScope.droppedElement.css({
+              left: $rootScope.droppedElementOrigin.x + 'px',
+              top: $rootScope.droppedElementOrigin.y + 'px'
+            });
+          }
 
           // element.off
         }

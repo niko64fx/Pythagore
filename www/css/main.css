@@ -197,13 +197,9 @@ block {
   border-radius: 5px;
   color: #fff;
   display: inline-block;
-  font-size: 32px;
   font-weight: 500;
-  height: 50px;
-  line-height: 50px;
   position: absolute;
   text-align: center;
-  width: 50px;
   z-index: 1;
 }
 block.draggable {

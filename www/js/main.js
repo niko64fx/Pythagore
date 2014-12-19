@@ -26,13 +26,19 @@ var app = angular
         $rootScope.game = localStorage.load('game');
         $rootScope.profiles = localStorage.load('profiles');
 
+        // - l'initialisation des variables générales
         $rootScope.selectedChapter = 0;
         $rootScope.selectedLevel = 0;
 
-        $rootScope.gridWidth = $window.innerWidth / 10;
+        // - l'initialisation des variables gérant les tailles (blocs, grille zt zones)
+        $rootScope.blockMargin = $window.innerWidth * 0.0125;
+        $rootScope.blockSize = $window.innerWidth * 0.075;
+        $rootScope.blockFontSize = Math.round($window.innerWidth * 0.05);
         $rootScope.gridHeight = $window.innerHeight * 0.16;
+        $rootScope.gridWidth = $window.innerWidth * 0.1;
+        $rootScope.stackMargin = ($window.innerHeight * 0.2 - $rootScope.blockSize) / 2;
         $rootScope.zones = [
-          { x: 0, y: $window.innerHeight *0.8 },
+          { x: 0, y: $window.innerHeight * 0.8 },
           { x: 0, y: 0 },
           { x: $window.innerWidth / 2, y: 0 }
         ];
@@ -42,9 +48,6 @@ var app = angular
 
 // Une fois que le DOM est chargé
 document.addEventListener('DOMContentLoaded', function() {
-	
-	// DEBUG
-  console.info('DOM loaded');
 
 	// On attache angular au DOM en chargeant le module Pythagore
 	angular.bootstrap(document, ['Pythagore'], { strictDi: true })
