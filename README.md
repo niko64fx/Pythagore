@@ -80,5 +80,5 @@ Pour Windows Phone, il n'y pas besoin de signature car elle se fait automatiquem
 
 * [iOS: Xcode](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_ios_index.md.html)
 * [Android: Android Studio](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_index.md.html)
-* [Android: Android Studio](http://www.codenutz.com/getting-started-phonegap-android-studio/)
+* [Android: Android Studio (bis)](http://www.codenutz.com/getting-started-phonegap-android-studio/)
 * [Windows Phone: Android Studio](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_wp8_index.md.html)
