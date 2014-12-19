@@ -1,0 +1,6 @@
+{
+    "name": "cordova-css-reset",
+    "version": "2.6.0",
+    "main": "reset.css",
+    "ignore": []
+}
