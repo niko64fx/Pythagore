@@ -17,7 +17,7 @@ Utilisation de Git
 
 La création d'un nouveau dépôt (repository) se fait directement sur le site.
 
-### Première nitialisation de git localement (et attachement au dépôt)
+### Première initialisation de git (localement)
 
 ```
 git init
@@ -29,12 +29,14 @@ git remote add origin git@github.com:xxx/xxx.git
 ```
 git add --all
 git commit -m "un commentaire sur ce commit"
-git push origin <le nom de ma branche, par ex: master>
+git push origin myBranch
 ```
 
 ### Récupération locale des fichiers du dépôt
 
-`git pull`
+```
+git pull
+```
 
 ### Gestion des branches
 
@@ -45,12 +47,25 @@ git push origin <le nom de ma branche, par ex: master>
 Bibliographie et liens utiles
 -----------------------------
 
-### Création des comptes développeur (pour publier une application)
+### Commandes de base Cordova
+
+Cela inclut la création de projets, l'ajout/suppression de plateformes et de plugins, la compilation et l'exécution sur votre téléphone et/ou un émulateur :
+
+http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html
+
+### Liste des plugins de Cordova
+
+* [Plugins officiels](http://cordova.apache.org/docs/en/4.0.0/cordova_plugins_pluginapis.md.html)
+* [Tous les plugins](http://plugins.cordova.io/#/)
+
+### Création des comptes développeur
+
+Ces comptes servent à publier votre application sur les stores
 
 * [Google Developers](https://developers.google.com/mobile/)
-* [Google Developers : Developer Console](http://developer.android.com/distribute/index.html)
-* [Apple Developer : iOS Dev Center](https://developer.apple.com/devcenter/ios/index.action)
-* [Windows Phone : Dev Center](https://dev.windowsphone.com/fr-fr/dashboard)
+* [Google Developers: Developer Console](http://developer.android.com/distribute/index.html)
+* [Apple Developer: iOS Dev Center](https://developer.apple.com/devcenter/ios/index.action)
+* [Windows Phone: Dev Center](https://dev.windowsphone.com/fr-fr/dashboard)
 
 ### Génération des fichiers de signature
 
@@ -60,3 +75,10 @@ Pour Windows Phone, il n'y pas besoin de signature car elle se fait automatiquem
 
 * [iOS](http://docs.build.phonegap.com/en_US/signing_signing-ios.md.html)
 * [Android](http://docs.build.phonegap.com/en_US/signing_signing-android.md.html)
+
+### Compilation des version finales des applications
+
+* [iOS: Xcode](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_ios_index.md.html)
+* [Android: Android Studio](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_index.md.html)
+* [Android: Android Studio](http://www.codenutz.com/getting-started-phonegap-android-studio/)
+* [Windows Phone: Android Studio](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_wp8_index.md.html)
