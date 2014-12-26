@@ -1,11 +1,11 @@
 app.directive(
   'block',
-	[
+  [
     '$rootScope', '$document',
-		function($rootScope, $document)
-		{
-			function link(scope, element, attributes)
-			{
+    function($rootScope, $document)
+    {
+      function link(scope, element, attributes)
+      {
         element.css({
           fontSize: $rootScope.blockFontSize + 'px',
           height: $rootScope.blockSize + 'px',
@@ -30,7 +30,7 @@ app.directive(
           $document.on('dropped', checkDroppedElement);
           element.addClass('droppable');
         }
-				//if(scope.block.isDroppable == true) element.attr('droppable','');
+        //if(scope.block.isDroppable == true) element.attr('droppable','');
 
         function dragStart(event)
         {
@@ -99,13 +99,13 @@ app.directive(
 
           // element.off
         }
-			}
+      }
 
-			return {
-				restrict: 'E',
-				template: '{{ block.value }}',
-				link: link
-			};
-		}
-	]
+      return {
+        restrict: 'E',
+        template: '{{ block.value }}',
+        link: link
+      };
+    }
+  ]
 );
