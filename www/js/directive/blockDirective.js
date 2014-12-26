@@ -55,10 +55,10 @@ app.directive(
           elementPosition.x += event.changedTouches[0].clientX - touchPosition.x;
           elementPosition.y += event.changedTouches[0].clientY - touchPosition.y;
           
-          // if (elementPosition.x < scope.block.minLeft) elementPosition.x = scope.block.minLeft;
-          // if (elementPosition.x > scope.block.maxLeft) elementPosition.x = scope.block.maxLeft;
-          // if (elementPosition.y < scope.block.minTop) elementPosition.y = scope.block.minTop;
-          // if (elementPosition.y > scope.block.maxTop) elementPosition.y = scope.block.maxTop;
+          if (elementPosition.x < scope.block.minLeft) elementPosition.x = scope.block.minLeft;
+          if (elementPosition.x > scope.block.maxLeft) elementPosition.x = scope.block.maxLeft;
+          if (elementPosition.y < scope.block.minTop)  elementPosition.y = scope.block.minTop;
+          if (elementPosition.y > scope.block.maxTop)  elementPosition.y = scope.block.maxTop;
           
           touchPosition.x = event.changedTouches[0].clientX;
           touchPosition.y = event.changedTouches[0].clientY;
