@@ -6,19 +6,19 @@ app.controller(
     {
       /**
        * Resetter: (ré-)initialise les propriétés et les variables de scope
+       *
+       * Note: on exécute la fonction au chargement du controller grâce aux closures
+       * (parenthèses autour de la fonction)
        * 
        * @return {void}
        */
       ($scope.reset = function()
       {
-        // Propriétés (attachées au scope)
-        $rootScope.selectedProfileIndex = 0;
-        
         // Par défaut, aucun des boutons principaux n'est visible
         // tant qu'aucun profil n'a été sélectionné
-        $scope.playButton = { isVisible: false };
+        $scope.playButton   = { isVisible: false };
         $scope.createButton = { isVisible: false };
-        $scope.editButton = { isVisible: false };
+        $scope.editButton   = { isVisible: false };
         $scope.removeButton = { isVisible: false };
 
         // On dé-sélectionne l'ensemble des profils (en supprimant la class 'on')
