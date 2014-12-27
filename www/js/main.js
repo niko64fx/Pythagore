@@ -30,7 +30,7 @@ var app = angular
         $rootScope.selectedChapter = 0;
         $rootScope.selectedLevel = 0;
 
-        // - l'initialisation des variables gérant les tailles (blocs, grille zt zones)
+        // - l'initialisation des variables gérant les tailles (blocs, grille et zones)
         $rootScope.blockMargin = $window.innerWidth * 0.0125;
         $rootScope.blockSize = $window.innerWidth * 0.075;
         $rootScope.blockFontSize = Math.round($window.innerWidth * 0.05);
